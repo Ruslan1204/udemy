@@ -160,3 +160,440 @@
 
 // }
 // console.log(returnNeighboringNumbers(5));
+
+// function calculateVolumeAndArea(num) {
+//   const v = num * num * num;
+//   const s = 6 * num * num;
+
+//   if (typeof num === "number") {
+//     console.log(`Объем куба: ${v}, площадь всей поверхности: ${s}`);
+//   } else {
+//     console.log("При вычислении произошла ошибка");
+//   }
+// }
+
+// calculateVolumeAndArea(a);
+
+// function getCoupeNumber(num) {
+//   let arr = [
+//     [1, 2, 3, 4],
+//     [5, 6, 7, 8],
+//     [9, 10, 11, 12],
+//     [13, 14, 15, 16],
+//     [17, 18, 19, 20],
+//     [21, 22, 23, 24],
+//     [25, 26, 27, 28],
+//     [29, 30, 31, 32],
+//     [33, 34, 35, 36],
+//   ];
+//   //   console.log(arr.length)
+
+//   if (num === 0 || num > 36) {
+//     return "Таких мест в вагоне не существует";
+//   } else if (num < 0 || typeof num !== "number" || !Number.isInteger(num)) {
+//     return "Ошибка. Проверьте правильность введенного номера места";
+//   }
+//   return Math.ceil(seatNumber / 4);
+
+//   //   else if (typeof num === "number") {
+//   //     arr.map((elm, index) => {
+//   //       if (elm.includes(num)) {
+//   //         console.log(index + 1);
+//   //       }
+//   //     });
+//   //   }
+// }
+
+// getCoupeNumber("36");
+
+// function getCoupeNumber(seatNumber) {
+//   if (
+//     typeof seatNumber !== "number" ||
+//     seatNumber < 0 ||
+//     !Number.isInteger(seatNumber)
+//   ) {
+//     return "Ошибка. Проверьте правильность введенного номера места";
+//   }
+
+//   if (seatNumber === 0 || seatNumber > 36) {
+//     return "Таких мест в вагоне не существует";
+//   }
+
+//   return Math.ceil(seatNumber / 4);
+//   // тут очень много вариантов решения, но выбрал один из элегантных :)
+// }
+
+// getCoupeNumber(33);
+
+// function getTimeFromMinutes(minutes) {
+//   if (
+//     typeof minutes !== "number" ||
+//     minutes < 0 ||
+//     !Number.isInteger(minutes)
+//   ) {
+//     console.log("Ошибка, проверьте данные");
+//     return "Ошибка, проверьте данные";
+//   }
+
+//   const hour = Math.floor(minutes / 60);
+//   const minute = minutes % 60;
+
+//   if (hour === 1) {
+//     console.log(`Это ${hour} час и ${minute} минут`);
+//     return `Это ${hour} час и ${minute} минут`;
+//   } else if (hour > 4 || hour === 0) {
+//     console.log(`Это ${hour} часов и ${minute} минут`);
+//     return `Это ${hour} часов и ${minute} минут`;
+//   }
+//   console.log(`Это ${hour} часа и ${minute} минут`);
+//   return `Это ${hour} часа и ${minute} минут`;
+// }
+
+// getTimeFromMinutes(50);
+
+// function findMaxNumber(...numbers) {
+//   const result = numbers.every((num) => typeof(num) === 'number');
+
+//   if (!result || numbers.length < 4) {
+//     console.log(0)
+//   }
+//    console.log(Math.max(...numbers))
+
+// }
+
+// // [12, 54, 18, 130, 44].every((elem) => elem >= 10); // true
+
+// findMaxNumber(1, 5, 6.6, 11);
+
+// function fib(num) {
+//   if (typeof num !== "number" || !Number.isInteger(num)) {
+//     return "";
+//   }
+//   let result = "";
+//   let first = 0;
+//   let second = 1;
+
+//   for (let i = 0; i < num; i++) {
+//     // console.log('i', i);
+//     if (i + 1 === num) {
+//       result += `${first}`;
+//       // Без пробела в конце
+//     } else {
+//       result += `${first} `;
+//     }
+
+//     // console.log('result', result);
+
+//     let third = first + second;
+//     // console.log('third = first + second',third);
+
+//     first = second;
+//     // console.log('first = second', first = second);
+
+//     second = third;
+
+//     // console.log(' second = third',  second = third);
+
+//   }
+
+//   console.log(result);
+//     return result;
+// }
+
+// fib(5);
+
+// const personalPlanPeter = {
+//     name: "Peter",
+//     age: "29",
+//     skills: {
+//         languages: ['ru', 'eng'],
+//         programmingLangs: {
+//             js: '20%',
+//             php: '10%'
+//         },
+//         exp: '1 month'
+//     },
+//     showAgeAndLangs: function(plan) {
+//         const {age} = plan;
+//         const {languages} = plan.skills;
+//         let str = `Мне ${age} и я владею языками: `;
+
+//         languages.forEach(function(lang) {
+//             str += `${lang.toUpperCase()} `;
+//         });
+
+//         return str;
+//     }
+// };
+
+// personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+
+// function showExperience(plan) {
+//     const {exp} = plan.skills;
+//     return exp;
+// }
+
+// showExperience(personalPlanPeter);
+
+// function showProgrammingLangs(plan) {
+//     let str = '';
+//     const {programmingLangs} = plan.skills;
+//     for (let key in programmingLangs) {
+//         str += `Язык ${key} изучен на ${programmingLangs[key]}\n`
+//     }
+
+//     return str;
+// }
+
+// showProgrammingLangs(personalPlanPeter);
+
+// const family = ["Peter", "Ann", "Alex", "Linda"];
+
+// function showFamily(arr) {
+//   const str = arr.join(" ");
+
+//   if (arr.length === 0) {
+//     console.log("Семья пуста");
+//   } else {
+//     console.log(`Семья состоит из: ${str}`);
+//   }
+// }
+
+// showFamily(family);
+
+// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+// function standardizeStrings(arr) {
+
+//     arr.forEach(element => {
+//         console.log(element.toLowerCase())
+//     });
+// }
+
+// standardizeStrings(favoriteCities)
+
+// const someString = "This is some strange string";
+
+// function reverse(str) {
+//   if (typeof str !== "string") {
+//     return "Ошибка!";
+//   } else {
+//     const arr = str.split(" ");
+
+//     const reverse = arr.map((word) => {
+//       return word.split("").reverse().join("");
+//     });
+
+//     return reverse.reverse().join(" ");
+//   }
+// }
+
+// reverse(someString);
+
+// const baseCurrencies = ["USD", "EUR"];
+// const additionalCurrencies = ["UAH", "RUB", "CNY"];
+
+// function availableCurr(arr, missingCurr) {
+//   let str = "";
+
+//   arr.length === 0
+//     ? (str = "Нет доступных валют")
+//     : (str = "Доступные валюты:\n");
+
+//   arr.forEach(function (curr, i) {
+//     if (curr !== missingCurr) {
+//       str += `${curr}\n`;
+//     }
+//   });
+//   return str;
+// }
+
+// availableCurr([...baseCurrencies, ...additionalCurrencies], "CNY");
+
+// - вычисление общей площади всех магазинов, которая вычисляется как длина магазина, умноженная на его ширину;
+// - вычисление общего объема торгового центра, так как цена отопления указана в кубических метрах;
+// - определение того, хватает ли бюджета на оплату такого объема;
+// - все числа идут без единиц измерения для упрощения, просто цифры и все;
+// - функция должна продолжать работать, даже если изменяется количество магазинов, высота, бюджет или подставляется вообще другой объект.
+
+// const shoppingMallData = {
+//   shops: [
+//     {
+//       width: 10,
+//       length: 5,
+//     },
+//     {
+//       width: 15,
+//       length: 7,
+//     },
+//     {
+//       width: 20,
+//       length: 5,
+//     },
+//     {
+//       width: 8,
+//       length: 10,
+//     },
+//   ],
+//   height: 5,
+//   moneyPer1m3: 30,
+//   budget: 50000,
+// };
+
+// function isBudgetEnough(data) {
+//   const { shops } = data;
+//   const per1m3 = [];
+
+//   shops.forEach((shop) => {
+//     per1m3.push(shop.width * shop.length * data.height);
+//   });
+
+//   const initialValue = 0;
+//   const sumWithInitial = per1m3.reduce(
+//     (accumulator, currentValue) => accumulator + currentValue,
+//     initialValue
+//   );
+
+//   const moneyAllPer1m3 = sumWithInitial * data.moneyPer1m3;
+//   if (moneyAllPer1m3 <= data.budget) {
+//     console.log("Бюджета достаточно");
+//   } else {
+//     console.log("Бюджета недостаточно");
+//   }
+// }
+
+// isBudgetEnough(shoppingMallData);
+
+const students = [
+  "Peter",
+  "Andrew",
+  "Ann",
+  "Mark",
+  "Josh",
+  "Sandra",
+  "Cris",
+  "Bernard",
+
+  "Sam",
+];
+
+// function sortStudentsByGroups(arr) {
+//   let newArr = [...arr];
+//   const sortArr = newArr.sort();
+//   let newGroups = [];
+//   newArr.forEach((name, indx) => {
+//     if (indx <= 2) {
+//       const deleteName = sortArr.splice(0, 3);
+//       newGroups.push(deleteName);
+//     }
+//   });
+
+//   newGroups.splice(
+//     3,
+//     0,
+//     `Оставшиеся студенты: ${sortArr.length === 0 ? "-" : sortArr.join(", ")}`
+//   );
+
+//   console.log(newGroups);
+// }
+
+// sortStudentsByGroups(students);
+
+// let c = 4;
+// function addX(x) {
+
+//   return function (n) {
+//     return n + x;
+//   };
+// }
+// const addThree = addX(3);
+// let d = addThree(c);
+// console.log("example partial application", d);
+
+// let value = "Сюрприз!";
+
+// function f() {
+//   let value = "ближайшее значение";
+
+//   function g() {
+//     debugger; // в консоли: напишите alert(value); Сюрприз!
+//   }
+
+//   return g;
+// }
+
+// let g = f();
+// g();
+
+// console.log(alert(value))
+
+// function sum(a) {
+//   return function (b) {
+//     return a + b;
+//   };
+// }
+
+// console.log(sum(4)(2));
+// function inBetween(a, b) {
+//   console.log("a", a);
+//   console.log("b", b);
+
+//   return function (x) {
+//     console.log("x", x);
+//     return x >= a && x <= b;
+//   };
+// }
+
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+
+// arr.filter(inBetween(3, 6));
+
+// alert(arr.filter(inBetween(3, 6))); // 3,4,5,6
+
+// alert(arr.filter(inArray([1, 2, 10]))); // 1,2
+
+// function inArray(arr) {
+//   console.log("arr", arr);
+//   return function (x) {
+//     console.log("x", x);
+//     return arr.includes(x);
+//   };
+// }
+
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+// arr.filter(inArray([1, 2, 10]));
+// let users = [
+//   { name: "John", age: 20, surname: "Johnson" },
+//   { name: "Pete", age: 18, surname: "Peterson" },
+//   { name: "Ann", age: 19, surname: "Hathaway" },
+// ];
+
+// function byField(fieldName){
+//     return (a, b) => a[fieldName] > b[fieldName] ? 1 : -1;
+//   }
+// console.log(users.sort(byField("name")))
+// // console.log(users.sort(byField("name")));
+// console.log(users.sort(byField("age")));
+function makeArmy() {
+  let shooters = [];
+  let i = 0;
+  while (i < 10) {
+    let b = i;
+    console.log(b); // должна выводить порядковый номер
+    let shooter = function () {
+      // функция shooter
+      console.log("b", b); // должна выводить порядковый номер
+    };
+    shooters.push(shooter); // и добавлять стрелка в массив
+    i++;
+  }
+  // ...а в конце вернуть массив из всех стрелков
+  return shooters;
+}
+
+let army = makeArmy();
+
+// все стрелки выводят 10 вместо их порядковых номеров (0, 1, 2, 3...)
+army[0](); // 10 от стрелка с порядковым номером 0
+army[1](); // 10 от стрелка с порядковым номером 1
+army[2](); // 10 ...и т.д.
