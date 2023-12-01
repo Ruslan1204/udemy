@@ -464,18 +464,18 @@
 
 // isBudgetEnough(shoppingMallData);
 
-const students = [
-  "Peter",
-  "Andrew",
-  "Ann",
-  "Mark",
-  "Josh",
-  "Sandra",
-  "Cris",
-  "Bernard",
+// const students = [
+//   "Peter",
+//   "Andrew",
+//   "Ann",
+//   "Mark",
+//   "Josh",
+//   "Sandra",
+//   "Cris",
+//   "Bernard",
 
-  "Sam",
-];
+//   "Sam",
+// ];
 
 // function sortStudentsByGroups(arr) {
 //   let newArr = [...arr];
@@ -574,26 +574,127 @@ const students = [
 // console.log(users.sort(byField("name")))
 // // console.log(users.sort(byField("name")));
 // console.log(users.sort(byField("age")));
-function makeArmy() {
-  let shooters = [];
-  let i = 0;
-  while (i < 10) {
-    let b = i;
-    console.log(b); // должна выводить порядковый номер
-    let shooter = function () {
-      // функция shooter
-      console.log("b", b); // должна выводить порядковый номер
-    };
-    shooters.push(shooter); // и добавлять стрелка в массив
-    i++;
-  }
-  // ...а в конце вернуть массив из всех стрелков
-  return shooters;
+// function makeArmy() {
+//   let shooters = [];
+//   let i = 0;
+//   while (i < 10) {
+//     let b = i;
+//     console.log(b); // должна выводить порядковый номер
+//     let shooter = function () {
+//       // функция shooter
+//       console.log("b", b); // должна выводить порядковый номер
+//     };
+//     shooters.push(shooter); // и добавлять стрелка в массив
+//     i++;
+//   }
+//   // ...а в конце вернуть массив из всех стрелков
+//   return shooters;
+// }
+
+// let army = makeArmy();
+
+// // все стрелки выводят 10 вместо их порядковых номеров (0, 1, 2, 3...)
+// army[0](); // 10 от стрелка с порядковым номером 0
+// army[1](); // 10 от стрелка с порядковым номером 1
+// army[2](); // 10 ...и т.д.
+
+// const name = 'Ruslan',surname = 'Motsnyi';
+
+// console.log(0 || (10 && 1 > 0) || NaN || false || null);
+
+// let x = 5; alert( x++ ); // 5
+
+// console.log([ ] + false - null + true); //NaN
+
+// let y = 1; let x = y = 2; alert(x); // 2
+
+// console.log([] + 1 + 2); //12
+
+// alert("1"[0]); // 1
+
+// console.log(2 && 1 && null && 0 && undefined); //null
+
+// console.log(!!( a &&b ) и (a && b)); //????
+
+// console.log(null || (2 && 3) || 4); //3
+
+// Правда ли что a == b ?
+// a = [1, 2, 3]; b = [1, 2, 3];
+// console.log(a === b); //false
+
+// alert(+"Infinity"); //Infinity
+
+// console.log("Ёжик" > "яблоко"); //false
+
+// console.log(0 || "" || 2 || undefined || true || falsе); //2
+
+const restorantData = {
+  menu: [
+    {
+      name: "Salad Caesar",
+      price: "14$",
+    },
+    {
+      name: "Pizza Diavola",
+      price: "9$",
+    },
+    {
+      name: "Beefsteak",
+      price: "17$",
+    },
+    {
+      name: "Napoleon",
+      price: "7$",
+    },
+  ],
+  waitors: [
+    { name: "Alice", age: 22 },
+    { name: "John", age: 24 },
+  ],
+  averageLunchPrice: "20$",
+  openNow: true,
+};
+
+function isOpen(prop) {
+  let answer = "";
+  !prop ? (answer = "Закрыто") : (answer = "Открыто");
+
+  return answer;
 }
 
-let army = makeArmy();
+console.log(isOpen(restorantData.openNow));
 
-// все стрелки выводят 10 вместо их порядковых номеров (0, 1, 2, 3...)
-army[0](); // 10 от стрелка с порядковым номером 0
-army[1](); // 10 от стрелка с порядковым номером 1
-army[2](); // 10 ...и т.д.
+function isAverageLunchPriceTrue(fDish, sDish, average) {
+  console.log(average);
+  console.log(fDish, sDish);
+  console.log(+fDish.price.slice(0, -1) + Number.parseInt(sDish.price));
+
+  if (
+    +fDish.price.slice(0, -1) + Number.parseInt(sDish.price) <
+    Number.parseInt(average)
+  ) {
+    return "Цена ниже средней";
+  } else {
+    return "Цена выше средней";
+  }
+}
+
+console.log(
+  isAverageLunchPriceTrue(
+    restorantData.menu[0],
+    restorantData.menu[1],
+    restorantData.averageLunchPrice
+  )
+);
+
+function transferWaitors(data) {
+  const copy = Object.assign({}, data);
+
+  copy.waitors = [{ name: "Mike", age: 32 }];
+
+  console.log(copy);
+  return copy;
+}
+// console.log("restorantData", restorantData);
+
+transferWaitors(restorantData);
